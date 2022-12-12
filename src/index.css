@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+    font-family: "Barlow Condensed";
+    src: local(BarlowCondensed-Regular), url("./fonts/BarlowCondensed-Regular.ttf") format("truetype");
+}
+
+html{
+    font-family: 'Barlow Condensed'
+}
+
+@layer components{
+    .footer-link, .header-link{
+        @apply relative text-blue-600 h-12 w-12 grid place-items-center select-none transition-all z-10
+    }
+    .footer-link svg, .header-link svg, .footer-link span, .header-link span{
+        @apply transition-all;
+    }
+    .footer-link.active svg{
+        box-shadow: 0 0 10px #3b82f6;
+        @apply text-white bg-blue-500 rounded-lg -translate-y-4 h-12 w-12 p-2;
+    }
+    .header-link.active svg{
+        box-shadow: 0 0 10px #3b82f6;
+        @apply text-white bg-blue-500 rounded-lg translate-x-4 h-12 w-12 p-2;
+    }
+    .footer-link.active span, .header-link.active span{
+        @apply bg-lightmode-bg dark:bg-darkmode-bg border-none duration-150;
+    }
+    span .left, span .right{
+        @apply h-3.5 w-3.5 absolute top-0 transition-all duration-150;
+    }
+    span .up, span .down{
+        @apply h-3.5 w-3.5 absolute right-0 transition-all duration-150;
+    }
+    span .left{
+        @apply -left-3.5 opacity-0 bg-lightmode-bg dark:bg-darkmode-bg;
+    }
+    span .left::after{
+        content: "";
+        right: 5%;
+        @apply absolute h-7 w-7 top-0 bg-lightmode-item dark:bg-darkmode-item rounded-full duration-150;
+    }
+    span .right{
+        @apply -right-3.5 opacity-0 bg-lightmode-bg dark:bg-darkmode-bg;
+    }
+    span .right::after{
+        content: "";
+        left: 5%;
+        @apply absolute h-7 w-7 top-0 bg-lightmode-item dark:bg-darkmode-item rounded-full duration-150;
+    }
+    span .up{
+        @apply -top-3.5 opacity-0 bg-lightmode-bg dark:bg-darkmode-bg;
+    }
+    span .up::after{
+        content: "";
+        bottom: 5%;
+        @apply absolute h-7 w-7 right-0 bg-lightmode-item dark:bg-darkmode-item rounded-full duration-150;
+    }
+    span .down{
+        @apply -bottom-3.5 opacity-0 bg-lightmode-bg dark:bg-darkmode-bg;
+    }
+    span .down::after{
+        content: "";
+        top: 5%;
+        @apply absolute h-7 w-7 right-0 bg-lightmode-item dark:bg-darkmode-item rounded-full duration-150;
+    }
+    .footer-link.active span .left, .footer-link.active span .right, .header-link.active span .up, .header-link.active span .down{
+        @apply opacity-100
+    }
+    .logo{
+        @apply w-8 h-8 z-10 text-blue-700;
+    }
+    .logo path{
+        @apply drop-shadow-md
+    }
+    .input{
+        @apply h-10 rounded-lg border border-lightmode-frame bg-lightmode-input dark:border-darkmode-frame dark:bg-darkmode-input dark:caret-white outline-none duration-150 dark:text-white flex gap-2 px-2 cursor-pointer sm:cursor-default
+    }
+    .title-hr{
+        @apply relative w-full border mt-2 border-lightmode-frame dark:border-darkmode-frame;
+    }
+    .title-hr::after{
+        content: "";
+        @apply absolute top-0 w-10 h-1 bg-blue-500;
+    }
+}
