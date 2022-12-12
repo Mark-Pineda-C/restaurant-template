@@ -85,10 +85,11 @@ html{
         @apply h-10 rounded-lg border border-lightmode-frame bg-lightmode-input dark:border-darkmode-frame dark:bg-darkmode-input dark:caret-white outline-none duration-150 dark:text-white flex gap-2 px-2 cursor-pointer sm:cursor-default
     }
     .title-hr{
-        @apply relative w-full border mt-2 border-lightmode-frame dark:border-darkmode-frame;
+        @apply w-full border mt-4 border-lightmode-frame dark:border-darkmode-frame;
     }
-    .title-hr::after{
-        content: "";
-        @apply absolute top-0 w-10 h-1 bg-blue-500;
+    .hr-decoration{
+        margin-top: -3px;
+        box-shadow: 0 0 10px #3b82f6;
+        @apply w-16 h-1 bg-blue-500 mb-4;
     }
 }

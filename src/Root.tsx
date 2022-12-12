@@ -8,7 +8,7 @@ function Root() {
 
   return (
    <>
-    <nav className='header-nav hidden lg:flex h-screen w-16 fixed bg-lightmode-item dark:bg-darkmode-item duration-150 justify-center items-center flex-col gap-10 py-2'>
+    <nav className='header-nav hidden lg:flex h-screen w-16 fixed bg-lightmode-item dark:bg-darkmode-item duration-150 justify-center items-center flex-col gap-10 py-2 '>
       <div className="h-12 w-12 rounded-lg bg-blue-500 opacity-75 grid place-items-center">
         <IoBookmark className="logo"/>
       </div>
