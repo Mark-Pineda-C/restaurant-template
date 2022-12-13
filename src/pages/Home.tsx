@@ -1,16 +1,11 @@
 import { useContext } from "react"
 import { ThemeContext } from "../contexts/ThemeContext"
 import { AiOutlineSearch } from 'react-icons/ai'
-import CategoryTabs from "../components/CategoryTabs"
-import Select from "../components/Select"
+import DishesDisplay from "../components/DishesDisplay"
 
 const Home = () => {
 
   const { changeTheme } = useContext(ThemeContext)
-
-  const handleSelect = (option: string) => {
-    console.log(option)
-  }
 
   return (
     <div className='w-full h-full flex'>
@@ -25,13 +20,7 @@ const Home = () => {
             <input type="text" className="outline-none bg-transparent w-full hidden sm:flex" placeholder="Buscar"/>
           </div>
         </div>
-        <CategoryTabs />
-        <div className="flex justify-between items-center">
-          <div className="flex flex-col items-start dark:text-white font-bold text-3xl">
-            Elegir Platos
-          </div>
-          <Select options={["Para servir", "Para llevar", "Delivery"]} itemSelected={handleSelect}/>
-        </div>
+        <DishesDisplay />
         <button onClick={() => changeTheme("dark")}>set dark</button>
         <button onClick={() => changeTheme("light")}>set light</button>
         <button onClick={() => changeTheme("os")}>set os</button>

@@ -1,24 +1,26 @@
-
-const data= ["Platos Calientes", "Platos Frios", "Entradas", "Sopas", "Postres", "Carnes", "Pastas"]
-
-const CategoryTabs = () => {
+interface Props{
+  categories: string [],
+  selectCategory: (category: string) => void
+}
+const CategoryTabs = ({categories, selectCategory}: Props) => {
   return (
-    <div className="w-full mt-6">
+    <>
       <ul className="flex gap-6 dark:text-white font-medium">
         <li>
-          <input type="radio" name="category" id="default" className="hidden peer" defaultChecked/>
+          <input type="radio" name="category" id="default" className="hidden peer" defaultChecked onClick={() => selectCategory("default")} />
           <label htmlFor="default" className="cursor-pointer peer-checked:text-blue-600 dark:peer-checked:text-blue-500 duration-100">Todos</label>
         </li>
-        {data.map((category) => { 
+        {categories.map((category) => { 
           return <li key={category}>
-            <input type="radio" name="category" id={`cat-${category}`} className="hidden peer"/>
+            <input type="radio" name="category" id={`cat-${category}`} className="hidden peer" onClick={() => selectCategory(category)}/>
             <label htmlFor={`cat-${category}`} className="cursor-pointer peer-checked:text-blue-600 dark:peer-checked:text-blue-500 duration-100">{category}</label>
           </li>
           })}
       </ul>
       <hr className="title-hr"/>
-      <div className="hr-decoration" style={{marginTop: "-3px"}}></div>
-    </div>
+      <div className="hr-decoration" style={{marginTop: "-3px"}} />
+      
+    </>
   )
 }
 
