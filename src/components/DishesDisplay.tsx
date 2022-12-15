@@ -41,7 +41,7 @@ const DishesDisplay = () => {
             </div>
             <Select options={[{name:"Para servir", value: 0}, {name: "Para llevar", value: 1}, {name: "Delivery", value: 2}]} itemSelected={handleSelect}/>
             </div>
-            <div className='mt-14 mx-2 flex flex-wrap gap-x-4 gap-y-14 justify-start @container/dishes' id="wrapper">
+            <div className='mt-6 xs:pt-10 px-4 mx-2 flex flex-wrap gap-x-4 gap-y-4 xs:gap-y-14 justify-start overflow-y-scroll' id="wrapper">
                 {filteredDishes.map((dish) => {
                     return(
                         <DishCard key={dish.id} name={dish.name} price={dish.price} stock={dish.stock[selectedStock]}/>

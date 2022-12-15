@@ -20,6 +20,9 @@ module.exports = {
           input: "#ffffff",
           frame: "#d2d2d2"
         }
+      },
+      screens: {
+        xs: "448px"
       }
     },
   },

@@ -5,7 +5,7 @@ interface Props{
 const CategoryTabs = ({categories, selectCategory}: Props) => {
   return (
     <>
-      <ul className="flex gap-6 dark:text-white font-medium">
+      <ul className="flex gap-6 dark:text-white font-medium overflow-x-scroll">
         <li>
           <input type="radio" name="category" id="default" className="hidden peer" defaultChecked onClick={() => selectCategory("default")} />
           <label htmlFor="default" className="cursor-pointer peer-checked:text-blue-600 dark:peer-checked:text-blue-500 duration-100">Todos</label>
@@ -13,7 +13,7 @@ const CategoryTabs = ({categories, selectCategory}: Props) => {
         {categories.map((category) => { 
           return <li key={category}>
             <input type="radio" name="category" id={`cat-${category}`} className="hidden peer" onClick={() => selectCategory(category)}/>
-            <label htmlFor={`cat-${category}`} className="cursor-pointer peer-checked:text-blue-600 dark:peer-checked:text-blue-500 duration-100">{category}</label>
+            <label htmlFor={`cat-${category}`} className="cursor-pointer peer-checked:text-blue-600 dark:peer-checked:text-blue-500 duration-100 whitespace-nowrap">{category}</label>
           </li>
           })}
       </ul>

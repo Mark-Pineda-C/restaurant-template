@@ -6,6 +6,9 @@
 *{
     -webkit-tap-highlight-color: transparent;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 
 @font-face {
     font-family: "Barlow Condensed";
@@ -13,7 +16,8 @@
 }
 
 html{
-    font-family: 'Barlow Condensed'
+    font-family: 'Barlow Condensed';
+    overflow: hidden
 }
 
 @layer components{
