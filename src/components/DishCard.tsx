@@ -12,7 +12,7 @@ const DishCard = ({name, price, stock}: Props) => {
         <img src="" className='w-32 h-32 rounded-lg bg-slate-500 -mt-12 mb-4' alt="dish" />
         <p style={{maxWidth: "100px"}} className="text-center leading-4">{name}</p>
         <p className='dark:text-slate-300 text-slate-700 mt-1 duration-150'>$ {price}</p>
-        <p className='dark:text-slate-300 text-slate-700 duration-150'>{stock} platos disponibles</p>
+        <p className={`${!stock ? 'dark:text-red-300 text-red-700': 'dark:text-slate-300 text-slate-700'} duration-150`}>{stock ? `${stock} platos disponibles` : 'Sin platos disponibles'}</p>
     </div>
   )
 }

@@ -1,9 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
 
+interface Option {
+  name: string;
+  value: number;
+}
+
 interface Props{
-    options: string[];
-    itemSelected: (option: string) => void;
+    options: Option[];
+    itemSelected: (option: number) => void;
 }
 
 function useOutsideAlerter(ref: React.MutableRefObject<any>, secondRef:React.MutableRefObject<any>, openList: boolean, setOpenList: React.Dispatch<React.SetStateAction<boolean>>) {
@@ -22,14 +27,14 @@ function useOutsideAlerter(ref: React.MutableRefObject<any>, secondRef:React.Mut
 
 const Select = ({options, itemSelected}: Props) => {
     const [openList, setOpenList] = useState(false)
-    const [item, setItem] = useState(options[0])
+    const [item, setItem] = useState(options[0].name)
     const wrapperRef = useRef(null)
     const selectRef = useRef(null)
     useOutsideAlerter(wrapperRef, selectRef, openList, setOpenList)
     
-    const setEmit = (option: string) => {
-        itemSelected(option);
-        setItem(option);
+    const setEmit = (option: Option) => {
+        itemSelected(option.value);
+        setItem(option.name);
         setOpenList(false)
     }
 
@@ -41,7 +46,7 @@ const Select = ({options, itemSelected}: Props) => {
             </div>
             <ul ref={wrapperRef} className={`${openList ? 'block' : 'hidden'} absolute w-full top-10 border border-lightmode-frame bg-lightmode-input dark:border-darkmode-frame dark:bg-darkmode-input dark:text-white rounded-lg`}>
                 {options.map((option) => {
-                    return <li className="p-2 cursor-pointer hover:text-blue-500 duration-100" onClick={() => setEmit(option)}>{option}</li>
+                    return <li key={option.value} className="p-2 cursor-pointer hover:text-blue-500 duration-100" onClick={() => setEmit(option)}>{option.name}</li>
                 })}
             </ul>
         </div>

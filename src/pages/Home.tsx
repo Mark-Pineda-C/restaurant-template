@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { ThemeContext } from "../contexts/ThemeContext"
 import { AiOutlineSearch } from 'react-icons/ai'
 import DishesDisplay from "../components/DishesDisplay"
+import { Loader } from "../components/Loader"
 
 const Home = () => {
 
@@ -25,7 +26,9 @@ const Home = () => {
         <button onClick={() => changeTheme("light")}>set light</button>
         <button onClick={() => changeTheme("os")}>set os</button>
       </div>
-      <div className="w-[700px] hidden lg:flex h-full bg-lightmode-item dark:bg-darkmode-item p-6 duration-150"></div>
+      <div className="w-[700px] hidden lg:flex h-full bg-lightmode-item dark:bg-darkmode-item p-6 duration-150 justify-center items-center">
+        <Loader />
+      </div>
     </div>
   )
 }
